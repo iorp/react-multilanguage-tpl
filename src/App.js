@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+
+import React from 'react';
+import { LanguageProvider } from './contexts/LanguageContext';
+import Greeting from './components/Greeting';
+import OtherComponent from './components/OtherComponent';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LanguageProvider defaultLanguage="fr">
+      <div className="App">
+        This demo shows how easy is react multilanguaging
+        See how there are strings from language provider, but also OtherComponent can always add or update language
+        strings
+      <Greeting />
+      <OtherComponent />
+      <LanguageSwitcher />
+      </div>
+    </LanguageProvider>
   );
 }
 
